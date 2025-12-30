@@ -12,6 +12,18 @@ class OshamaApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        textTheme: ThemeData(useMaterial3: true).textTheme.apply(
+          fontFamilyFallback: const [
+            // Windows UI Font
+            'Microsoft YaHei UI',
+            'Microsoft YaHei',
+            // macOS UI Font
+            'PingFang SC',
+            // Linux UI Font (Noto Sans)
+            'Noto Sans CJK SC',
+            'Noto Sans CJK TC',
+          ],
+        ),
       ),
       home: const HomePage(),
     );
