@@ -9,20 +9,13 @@ import 'package:oshama/core/network/exception.dart';
 import 'package:oshama/model/milky_types.dart';
 
 class MilkyHttpServer {
-  final String host;
-  final int port;
-  final String accessToken;
-
+  late String accessToken = '';
   late Context context;
 
   final app = Alfred();
   final wsClients = <WebSocket>[];
 
-  MilkyHttpServer({
-    this.host = 'localhost',
-    required this.port,
-    this.accessToken = '',
-  }) {
+  MilkyHttpServer({this.accessToken = ''}) {
     app.all('*', cors());
 
     app.all('/api/*', (req, res) {
@@ -94,8 +87,12 @@ class MilkyHttpServer {
     });
   }
 
-  Future<void> start() async {
+  Future<void> start(int port, [String host = 'localhost']) async {
     await app.listen(port, host);
+  }
+
+  Future<void> close() async {
+    await app.close();
   }
 
   Future<void> sendEvent(Event event) async {
