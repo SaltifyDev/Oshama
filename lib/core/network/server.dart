@@ -19,7 +19,7 @@ class MilkyHttpServer {
     app.all('*', cors());
 
     app.all('/api/*', (req, res) {
-      final token = req.headers['authorization'] ?? '';
+      final token = req.headers['authorization']?[0] ?? '';
 
       if (accessToken.isNotEmpty && token != 'Bearer $accessToken') {
         throw AlfredException(401, 'Unauthorized');
@@ -69,7 +69,7 @@ class MilkyHttpServer {
       if (accessToken.isNotEmpty) {
         // First check Authorization header, then check query parameter
         final token =
-            req.headers['authorization'] ??
+            req.headers['authorization']?[0] ??
             (req.uri.queryParameters.containsKey('access_token')
                 ? 'Bearer ${req.uri.queryParameters['access_token']}'
                 : '');
