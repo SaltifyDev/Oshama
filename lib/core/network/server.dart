@@ -1,3 +1,4 @@
+// ignore_for_file: implementation_imports
 import 'dart:convert';
 import 'dart:io';
 
@@ -59,7 +60,7 @@ class MilkyHttpServer {
   }
 
   Future<void> sendEvent(Event event) async {
-    final data = json.encode(event);
+    final data = json.encode(event.toJson());
     for (final ws in wsClients) {
       ws.add(data);
     }
