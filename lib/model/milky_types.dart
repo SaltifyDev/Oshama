@@ -1,6 +1,5 @@
-// Auto-generated file
 // ignore_for_file: invalid_annotation_target
-// Generated from Milky 1.1 (1.1.0-rc.6)
+// Generated from Milky 1.1 (1.1.0)
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -8,7 +7,7 @@ part 'milky_types.freezed.dart';
 part 'milky_types.g.dart';
 
 const milkyVersion = "1.1";
-const milkyPackageVersion = "1.1.0-rc.6";
+const milkyPackageVersion = "1.1.0";
 
 @freezed
 abstract class ApiGeneralResponse with _$ApiGeneralResponse {
@@ -55,7 +54,6 @@ abstract class Event with _$Event {
     /// 机器人 QQ 号
     @JsonKey(name: "self_id")
     required int selfId,
-    /// 接收消息
     @JsonKey(name: "data")
     required IncomingMessage data,
   }) = EventMessageReceive;
@@ -2935,3 +2933,388 @@ abstract class DeleteGroupFolderInput with _$DeleteGroupFolderInput {
 }
 
 typedef DeleteGroupFolderOutput = ApiEmptyStruct;
+
+// ####################################
+// API Endpoint Constants
+// ####################################
+
+class ApiEndpoint<T, R> {
+  final String endpoint;
+  final T Function(Map<String, dynamic>) fromJsonInput;
+  final Map<String, dynamic> Function(R) toJsonOutput;
+
+  const ApiEndpoint(this.endpoint, this.fromJsonInput, this.toJsonOutput);
+
+  /// 获取登录信息
+  static final getLoginInfo = ApiEndpoint(
+    "/get_login_info",
+    GetLoginInfoInput.fromJson,
+    (GetLoginInfoOutput output) => output.toJson(),
+  );
+  /// 获取协议端信息
+  static final getImplInfo = ApiEndpoint(
+    "/get_impl_info",
+    GetImplInfoInput.fromJson,
+    (GetImplInfoOutput output) => output.toJson(),
+  );
+  /// 获取用户个人信息
+  static final getUserProfile = ApiEndpoint(
+    "/get_user_profile",
+    GetUserProfileInput.fromJson,
+    (GetUserProfileOutput output) => output.toJson(),
+  );
+  /// 获取好友列表
+  static final getFriendList = ApiEndpoint(
+    "/get_friend_list",
+    GetFriendListInput.fromJson,
+    (GetFriendListOutput output) => output.toJson(),
+  );
+  /// 获取好友信息
+  static final getFriendInfo = ApiEndpoint(
+    "/get_friend_info",
+    GetFriendInfoInput.fromJson,
+    (GetFriendInfoOutput output) => output.toJson(),
+  );
+  /// 获取群列表
+  static final getGroupList = ApiEndpoint(
+    "/get_group_list",
+    GetGroupListInput.fromJson,
+    (GetGroupListOutput output) => output.toJson(),
+  );
+  /// 获取群信息
+  static final getGroupInfo = ApiEndpoint(
+    "/get_group_info",
+    GetGroupInfoInput.fromJson,
+    (GetGroupInfoOutput output) => output.toJson(),
+  );
+  /// 获取群成员列表
+  static final getGroupMemberList = ApiEndpoint(
+    "/get_group_member_list",
+    GetGroupMemberListInput.fromJson,
+    (GetGroupMemberListOutput output) => output.toJson(),
+  );
+  /// 获取群成员信息
+  static final getGroupMemberInfo = ApiEndpoint(
+    "/get_group_member_info",
+    GetGroupMemberInfoInput.fromJson,
+    (GetGroupMemberInfoOutput output) => output.toJson(),
+  );
+  /// 设置 QQ 账号头像
+  static final setAvatar = ApiEndpoint(
+    "/set_avatar",
+    SetAvatarInput.fromJson,
+    (SetAvatarOutput output) => output.toJson(),
+  );
+  /// 设置 QQ 账号昵称
+  static final setNickname = ApiEndpoint(
+    "/set_nickname",
+    SetNicknameInput.fromJson,
+    (SetNicknameOutput output) => output.toJson(),
+  );
+  /// 设置 QQ 账号个性签名
+  static final setBio = ApiEndpoint(
+    "/set_bio",
+    SetBioInput.fromJson,
+    (SetBioOutput output) => output.toJson(),
+  );
+  /// 获取自定义表情 URL 列表
+  static final getCustomFaceUrlList = ApiEndpoint(
+    "/get_custom_face_url_list",
+    GetCustomFaceUrlListInput.fromJson,
+    (GetCustomFaceUrlListOutput output) => output.toJson(),
+  );
+  /// 获取 Cookies
+  static final getCookies = ApiEndpoint(
+    "/get_cookies",
+    GetCookiesInput.fromJson,
+    (GetCookiesOutput output) => output.toJson(),
+  );
+  /// 获取 CSRF Token
+  static final getCsrfToken = ApiEndpoint(
+    "/get_csrf_token",
+    GetCsrfTokenInput.fromJson,
+    (GetCsrfTokenOutput output) => output.toJson(),
+  );
+  /// 发送私聊消息
+  static final sendPrivateMessage = ApiEndpoint(
+    "/send_private_message",
+    SendPrivateMessageInput.fromJson,
+    (SendPrivateMessageOutput output) => output.toJson(),
+  );
+  /// 发送群聊消息
+  static final sendGroupMessage = ApiEndpoint(
+    "/send_group_message",
+    SendGroupMessageInput.fromJson,
+    (SendGroupMessageOutput output) => output.toJson(),
+  );
+  /// 撤回私聊消息
+  static final recallPrivateMessage = ApiEndpoint(
+    "/recall_private_message",
+    RecallPrivateMessageInput.fromJson,
+    (RecallPrivateMessageOutput output) => output.toJson(),
+  );
+  /// 撤回群聊消息
+  static final recallGroupMessage = ApiEndpoint(
+    "/recall_group_message",
+    RecallGroupMessageInput.fromJson,
+    (RecallGroupMessageOutput output) => output.toJson(),
+  );
+  /// 获取消息
+  static final getMessage = ApiEndpoint(
+    "/get_message",
+    GetMessageInput.fromJson,
+    (GetMessageOutput output) => output.toJson(),
+  );
+  /// 获取历史消息列表
+  static final getHistoryMessages = ApiEndpoint(
+    "/get_history_messages",
+    GetHistoryMessagesInput.fromJson,
+    (GetHistoryMessagesOutput output) => output.toJson(),
+  );
+  /// 获取临时资源链接
+  static final getResourceTempUrl = ApiEndpoint(
+    "/get_resource_temp_url",
+    GetResourceTempUrlInput.fromJson,
+    (GetResourceTempUrlOutput output) => output.toJson(),
+  );
+  /// 获取合并转发消息内容
+  static final getForwardedMessages = ApiEndpoint(
+    "/get_forwarded_messages",
+    GetForwardedMessagesInput.fromJson,
+    (GetForwardedMessagesOutput output) => output.toJson(),
+  );
+  /// 标记消息为已读
+  static final markMessageAsRead = ApiEndpoint(
+    "/mark_message_as_read",
+    MarkMessageAsReadInput.fromJson,
+    (MarkMessageAsReadOutput output) => output.toJson(),
+  );
+  /// 发送好友戳一戳
+  static final sendFriendNudge = ApiEndpoint(
+    "/send_friend_nudge",
+    SendFriendNudgeInput.fromJson,
+    (SendFriendNudgeOutput output) => output.toJson(),
+  );
+  /// 发送名片点赞
+  static final sendProfileLike = ApiEndpoint(
+    "/send_profile_like",
+    SendProfileLikeInput.fromJson,
+    (SendProfileLikeOutput output) => output.toJson(),
+  );
+  /// 删除好友
+  static final deleteFriend = ApiEndpoint(
+    "/delete_friend",
+    DeleteFriendInput.fromJson,
+    (DeleteFriendOutput output) => output.toJson(),
+  );
+  /// 获取好友请求列表
+  static final getFriendRequests = ApiEndpoint(
+    "/get_friend_requests",
+    GetFriendRequestsInput.fromJson,
+    (GetFriendRequestsOutput output) => output.toJson(),
+  );
+  /// 同意好友请求
+  static final acceptFriendRequest = ApiEndpoint(
+    "/accept_friend_request",
+    AcceptFriendRequestInput.fromJson,
+    (AcceptFriendRequestOutput output) => output.toJson(),
+  );
+  /// 拒绝好友请求
+  static final rejectFriendRequest = ApiEndpoint(
+    "/reject_friend_request",
+    RejectFriendRequestInput.fromJson,
+    (RejectFriendRequestOutput output) => output.toJson(),
+  );
+  /// 设置群名称
+  static final setGroupName = ApiEndpoint(
+    "/set_group_name",
+    SetGroupNameInput.fromJson,
+    (SetGroupNameOutput output) => output.toJson(),
+  );
+  /// 设置群头像
+  static final setGroupAvatar = ApiEndpoint(
+    "/set_group_avatar",
+    SetGroupAvatarInput.fromJson,
+    (SetGroupAvatarOutput output) => output.toJson(),
+  );
+  /// 设置群名片
+  static final setGroupMemberCard = ApiEndpoint(
+    "/set_group_member_card",
+    SetGroupMemberCardInput.fromJson,
+    (SetGroupMemberCardOutput output) => output.toJson(),
+  );
+  /// 设置群成员专属头衔
+  static final setGroupMemberSpecialTitle = ApiEndpoint(
+    "/set_group_member_special_title",
+    SetGroupMemberSpecialTitleInput.fromJson,
+    (SetGroupMemberSpecialTitleOutput output) => output.toJson(),
+  );
+  /// 设置群管理员
+  static final setGroupMemberAdmin = ApiEndpoint(
+    "/set_group_member_admin",
+    SetGroupMemberAdminInput.fromJson,
+    (SetGroupMemberAdminOutput output) => output.toJson(),
+  );
+  /// 设置群成员禁言
+  static final setGroupMemberMute = ApiEndpoint(
+    "/set_group_member_mute",
+    SetGroupMemberMuteInput.fromJson,
+    (SetGroupMemberMuteOutput output) => output.toJson(),
+  );
+  /// 设置群全员禁言
+  static final setGroupWholeMute = ApiEndpoint(
+    "/set_group_whole_mute",
+    SetGroupWholeMuteInput.fromJson,
+    (SetGroupWholeMuteOutput output) => output.toJson(),
+  );
+  /// 踢出群成员
+  static final kickGroupMember = ApiEndpoint(
+    "/kick_group_member",
+    KickGroupMemberInput.fromJson,
+    (KickGroupMemberOutput output) => output.toJson(),
+  );
+  /// 获取群公告列表
+  static final getGroupAnnouncements = ApiEndpoint(
+    "/get_group_announcements",
+    GetGroupAnnouncementsInput.fromJson,
+    (GetGroupAnnouncementsOutput output) => output.toJson(),
+  );
+  /// 发送群公告
+  static final sendGroupAnnouncement = ApiEndpoint(
+    "/send_group_announcement",
+    SendGroupAnnouncementInput.fromJson,
+    (SendGroupAnnouncementOutput output) => output.toJson(),
+  );
+  /// 删除群公告
+  static final deleteGroupAnnouncement = ApiEndpoint(
+    "/delete_group_announcement",
+    DeleteGroupAnnouncementInput.fromJson,
+    (DeleteGroupAnnouncementOutput output) => output.toJson(),
+  );
+  /// 获取群精华消息列表
+  static final getGroupEssenceMessages = ApiEndpoint(
+    "/get_group_essence_messages",
+    GetGroupEssenceMessagesInput.fromJson,
+    (GetGroupEssenceMessagesOutput output) => output.toJson(),
+  );
+  /// 设置群精华消息
+  static final setGroupEssenceMessage = ApiEndpoint(
+    "/set_group_essence_message",
+    SetGroupEssenceMessageInput.fromJson,
+    (SetGroupEssenceMessageOutput output) => output.toJson(),
+  );
+  /// 退出群
+  static final quitGroup = ApiEndpoint(
+    "/quit_group",
+    QuitGroupInput.fromJson,
+    (QuitGroupOutput output) => output.toJson(),
+  );
+  /// 发送群消息表情回应
+  static final sendGroupMessageReaction = ApiEndpoint(
+    "/send_group_message_reaction",
+    SendGroupMessageReactionInput.fromJson,
+    (SendGroupMessageReactionOutput output) => output.toJson(),
+  );
+  /// 发送群戳一戳
+  static final sendGroupNudge = ApiEndpoint(
+    "/send_group_nudge",
+    SendGroupNudgeInput.fromJson,
+    (SendGroupNudgeOutput output) => output.toJson(),
+  );
+  /// 获取群通知列表
+  static final getGroupNotifications = ApiEndpoint(
+    "/get_group_notifications",
+    GetGroupNotificationsInput.fromJson,
+    (GetGroupNotificationsOutput output) => output.toJson(),
+  );
+  /// 同意入群/邀请他人入群请求
+  static final acceptGroupRequest = ApiEndpoint(
+    "/accept_group_request",
+    AcceptGroupRequestInput.fromJson,
+    (AcceptGroupRequestOutput output) => output.toJson(),
+  );
+  /// 拒绝入群/邀请他人入群请求
+  static final rejectGroupRequest = ApiEndpoint(
+    "/reject_group_request",
+    RejectGroupRequestInput.fromJson,
+    (RejectGroupRequestOutput output) => output.toJson(),
+  );
+  /// 同意他人邀请自身入群
+  static final acceptGroupInvitation = ApiEndpoint(
+    "/accept_group_invitation",
+    AcceptGroupInvitationInput.fromJson,
+    (AcceptGroupInvitationOutput output) => output.toJson(),
+  );
+  /// 拒绝他人邀请自身入群
+  static final rejectGroupInvitation = ApiEndpoint(
+    "/reject_group_invitation",
+    RejectGroupInvitationInput.fromJson,
+    (RejectGroupInvitationOutput output) => output.toJson(),
+  );
+  /// 上传私聊文件
+  static final uploadPrivateFile = ApiEndpoint(
+    "/upload_private_file",
+    UploadPrivateFileInput.fromJson,
+    (UploadPrivateFileOutput output) => output.toJson(),
+  );
+  /// 上传群文件
+  static final uploadGroupFile = ApiEndpoint(
+    "/upload_group_file",
+    UploadGroupFileInput.fromJson,
+    (UploadGroupFileOutput output) => output.toJson(),
+  );
+  /// 获取私聊文件下载链接
+  static final getPrivateFileDownloadUrl = ApiEndpoint(
+    "/get_private_file_download_url",
+    GetPrivateFileDownloadUrlInput.fromJson,
+    (GetPrivateFileDownloadUrlOutput output) => output.toJson(),
+  );
+  /// 获取群文件下载链接
+  static final getGroupFileDownloadUrl = ApiEndpoint(
+    "/get_group_file_download_url",
+    GetGroupFileDownloadUrlInput.fromJson,
+    (GetGroupFileDownloadUrlOutput output) => output.toJson(),
+  );
+  /// 获取群文件列表
+  static final getGroupFiles = ApiEndpoint(
+    "/get_group_files",
+    GetGroupFilesInput.fromJson,
+    (GetGroupFilesOutput output) => output.toJson(),
+  );
+  /// 移动群文件
+  static final moveGroupFile = ApiEndpoint(
+    "/move_group_file",
+    MoveGroupFileInput.fromJson,
+    (MoveGroupFileOutput output) => output.toJson(),
+  );
+  /// 重命名群文件
+  static final renameGroupFile = ApiEndpoint(
+    "/rename_group_file",
+    RenameGroupFileInput.fromJson,
+    (RenameGroupFileOutput output) => output.toJson(),
+  );
+  /// 删除群文件
+  static final deleteGroupFile = ApiEndpoint(
+    "/delete_group_file",
+    DeleteGroupFileInput.fromJson,
+    (DeleteGroupFileOutput output) => output.toJson(),
+  );
+  /// 创建群文件夹
+  static final createGroupFolder = ApiEndpoint(
+    "/create_group_folder",
+    CreateGroupFolderInput.fromJson,
+    (CreateGroupFolderOutput output) => output.toJson(),
+  );
+  /// 重命名群文件夹
+  static final renameGroupFolder = ApiEndpoint(
+    "/rename_group_folder",
+    RenameGroupFolderInput.fromJson,
+    (RenameGroupFolderOutput output) => output.toJson(),
+  );
+  /// 删除群文件夹
+  static final deleteGroupFolder = ApiEndpoint(
+    "/delete_group_folder",
+    DeleteGroupFolderInput.fromJson,
+    (DeleteGroupFolderOutput output) => output.toJson(),
+  );
+}
